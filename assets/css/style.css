@@ -101,9 +101,10 @@ input {
   border: none;
   text-decoration: none;
   outline: none;
-  border-radius: 7px;
+  border-radius: 5px;
+  width: 99%;
 }
 
 input:focus {
-  background-color: rgb(185, 185, 185);
+  background-color: rgb(219, 219, 219);
 }
