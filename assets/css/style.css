@@ -108,3 +108,7 @@ input {
 input:focus {
   background-color: rgb(219, 219, 219);
 }
+
+::placeholder {
+  color: black;
+}

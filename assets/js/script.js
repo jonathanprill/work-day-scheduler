@@ -1,5 +1,5 @@
 //defining html elements and ID's
-var allButtons = document.querySelector("#allButtons");
+
 var div9am = document.querySelector("#div9am");
 var div10am = document.querySelector("#div10am");
 var div11am = document.querySelector("#div11am");
@@ -9,6 +9,7 @@ var div2pm = document.querySelector("#div2pm");
 var div3pm = document.querySelector("#div3pm");
 var div4pm = document.querySelector("#div4pm");
 var div5pm = document.querySelector("#div5pm");
+
 ///////////////////////////////////////////////////////////////////////////////////////
 
 
@@ -20,6 +21,7 @@ function updateClock() {
     $("#currentDay").html(moment().format('MMMM Do YYYY, h:mm:ss a'));
 }
 setInterval(updateClock, 100);
+
 ///////////////////////////////////////////////////////////////////////////////////////
 
 
@@ -81,6 +83,7 @@ var changeColor = function() {
 };
 
 changeColor();
+
 ///////////////////////////////////////////////////////////////////////////////////////
 
 
@@ -133,17 +136,25 @@ var task5pm = document.createElement("input");
 task5pm.placeholder = "";
 task5pm.id = "input5pm";
 div5pm.appendChild(task5pm)
+
 ///////////////////////////////////////////////////////////////////////////////////////
 
 
 
 
 
+
+
+
+
+
+
 // Saves task inputs to local storage
-allButtons.addEventListener("click", function(event) {
+
+$(".allButtons").click(function(event) {
     event.preventDefault();
     
-    var events = [{
+    var tasks = [{
       nineAM: input9am.value.trim() || input9am.placeholder.trim(),
       tenAM: input10am.value.trim() || input10am.placeholder.trim(),
       elevenAM: input11am.value.trim() || input11am.placeholder.trim(),
@@ -154,14 +165,15 @@ allButtons.addEventListener("click", function(event) {
       fourPM: input4pm.value.trim() || input4pm.placeholder.trim(),
       fivePM: input5pm.value.trim() || input5pm.placeholder.trim()
     }];
-    // sets events to local storage 
-    localStorage.setItem('events', JSON.stringify(events));
+    // sets tasks to local storage 
+    localStorage.setItem('tasks', JSON.stringify(tasks));
 });
+
 
 //Gets arrary from storage
 
-var getsEvents = JSON.parse(localStorage.getItem('events'))  || '[]'; 
-var fromArr = getsEvents[0]; 
+var getstasks = JSON.parse(localStorage.getItem('tasks'))  || '[]'; 
+var fromArr = getstasks[0]; 
 
 
 //Sets whats in memory to placeholder
@@ -176,12 +188,55 @@ task4pm.placeholder = fromArr.fourPM || '';
 task5pm.placeholder = fromArr.fivePM || '';
 
 
-
-
 ///////////////////////////////////////////////////////////////////////////////////////
 
 
-//ADD CLEAR TASK BUTTON NEXT TO SAVE BUTTON
+
+
+
+
+
+//CLEARS INPUT FIELD WHEN CLICKED ON
+
+task9am.addEventListener("click", function() {
+    $('#input9am').attr('placeholder','');
+});
+
+
+task10am.addEventListener("click", function() {
+    $('#input10am').attr('placeholder','');
+});
+
+
+task11am.addEventListener("click", function() {
+    $('#input11am').attr('placeholder','');
+});
+
+
+task12pm.addEventListener("click", function() {
+    $('#input12pm').attr('placeholder','');
+});
+
+task1pm.addEventListener("click", function() {
+    $('#input1pm').attr('placeholder','');
+});
+
+task2pm.addEventListener("click", function() {
+    $('#input2pm').attr('placeholder','');
+});
+
+task3pm.addEventListener("click", function() {
+    $('#input3pm').attr('placeholder','');
+});
+
+task4pm.addEventListener("click", function() {
+    $('#input4pm').attr('placeholder','');
+});
+
+task5pm.addEventListener("click", function() {
+    $('#input5pm').attr('placeholder','');
+});
+
 
 
 
